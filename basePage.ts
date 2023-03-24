@@ -1,5 +1,6 @@
 import {Builder, By, Capabilities, until, WebDriver, WebElement, Actions, Button} from "selenium-webdriver";
-import { FtMainPageObject } from "./mainPageObject.ts";
+// import { DtMainPageObject } from "./mainPageObject";
+
 const fs= require('fs')
 //const chromedriver = require("chromedriver")
 import { CustomConsole, LogType, LogMessage } from '@jest/console';
