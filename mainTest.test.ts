@@ -34,16 +34,18 @@ describe("1 - Basic reality check", () => {
 })
 describe("2 - Search function", () => {
     test("2.0 - Can initiate a search and find relevant content", async() => {
-        await dtMainPageObject.search('Truck')
+        await dtMainPageObject.search('Truck') // Searches for "Truck"
         let textResults = await dtMainPageObject.getResults()
-        expect(textResults).toContain('Truck')
+        expect(textResults).toContain('Truck') // Verifies that the keywords "Truck" does indeed appear in the results
+        await dtMainPageObject.returnHomeWithLogoLink() // Returns to home page
     })
 })
-// describe("3 - Contact Us form", () => {
-//     test("", async() => {
+describe.only("3 - Contact Us form", () => {
+    test("3.0 - Can fill the contact form (but not testing the submission of the form)", async() => {
+        await dtMainPageObject.fillContactForm()  
+    })
+})
 
-//     })
-// })
 // describe("4 - Verify Portland office is present", () => {
 //     test("", async() => {
 

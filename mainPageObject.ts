@@ -14,7 +14,17 @@ export class DtMainPageObject extends BasePage {
     // Company page
     byCompanyNavListItem: By =By.xpath("//body//header//section//nav//section//ul//li//a[normalize-space()='Company']")
     byCompanyPageTitleField: By =By.xpath("//h3[normalize-space()='Innovation + Impact = DTNA DNA']")
-
+    // Footer
+    byFooterContactLink: By =By.xpath("//a[normalize-space()='Contact']")
+    // Contact page
+    byContactPageFirstName: By =By.xpath("//input[@name='FirstName']")
+    byContactPageLastName: By =By.xpath("//input[@name='LastName']")
+    byContactPagePhone: By =By.xpath("//input[@name='Phone']")
+    byContactPageEmail: By =By.xpath("//input[@name='Email']")
+    byContactPageTopicPreClick: By =By.xpath("//select[@name='Topic']")
+    byContactPageTopic1Corporate: By =By.xpath("//select[@name='Topic']/option[text() = 'Corporate Giving']")
+    byContactPageSubject: By =By.xpath("//input[@name='Subject']")
+    byContactPageMessage: By =By.xpath("//textarea[@name='Message']")
 
     constructor(){
         super({url:"https://northamerica.daimlertruck.com/"}) // Comment out when trying alt test above
@@ -70,6 +80,27 @@ export class DtMainPageObject extends BasePage {
             }
         }
         return null
+    }
+    // 3.0
+    async fillContactForm() {
+        await this.click(this.byFooterContactLink) // Clicks to access Contact page
+        console.log ("3.0 - 1")
+        await this.setInput(this.byContactPageFirstName, "John")
+        console.log ("3.0 - 2")
+        await this.setInput(this.byContactPageLastName, "Doe")
+        console.log ("3.0 - 3")
+        await this.setInput(this.byContactPagePhone, "1234567890")
+        console.log ("3.0 - 4")
+        await this.setInput(this.byContactPageEmail, "johndoe@test.com")
+        console.log ("3.0 - 5")
+        await this.click(this.byContactPageTopicPreClick)
+        console.log ("3.0 - 6")
+        await this.click(this.byContactPageTopic1Corporate)
+        console.log ("3.0 - 7")
+        await this.setInput(this.byContactPageSubject, "QA Test")
+        console.log ("3.0 - 8")
+        await this.setInput(this.byContactPageMessage, "QA Test, please ignore")
+        console.log ("3.0 - 9")
     }
 
 
