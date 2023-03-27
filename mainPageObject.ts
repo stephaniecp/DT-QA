@@ -17,17 +17,18 @@ export class DtMainPageObject extends BasePage {
 
 
     constructor(){
-        // super({url:"https://northamerica.daimlertruck.com/company/"}) // Delete - Alt test (works)
         super({url:"https://northamerica.daimlertruck.com/"}) // Comment out when trying alt test above
     }
 
 // Custom methods below
- 
+    async returnHomeWithLogoLink() {
+        await this.click(this.byHomeLogo) // Clicks to return to home page
+    }
     //1.0
     async helloWorldTest() {
         await this.click(this.byCompanyNavListItem)  // Clicks to access Company page
         await this.verifyElementExists(this.byCompanyPageTitleField) // Confirms Company page is loaded by verify element exists
-        await this.click(this.byHomeLogo) // Clicks to return to home page
+        await this.returnHomeWithLogoLink() // Clicks to return to home page
     }
     //1.1
     async verifyOnTheHomePage() {
@@ -37,7 +38,13 @@ export class DtMainPageObject extends BasePage {
     async verifyNavItemAndHomeLogoLink() {
         await this.click(this.byEventsNavListItem) // Clicks to access Event page
         await this.verifyElementExists(this.byEventPageTitleField) // Confirms Events page is loaded by verify element exists
-        await this.click(this.byHomeLogo) // Clicks to return to home page
+        await this.returnHomeWithLogoLink() // Clicks to return to home page
+    }
+    //1.3
+    async verifyNavItemAndHomeLogoLinkWithVar(byLinkElement: By, byElementToVerify: By) {
+        await this.click(byLinkElement) // Complete
+        await this.verifyElementExists(byElementToVerify) // Complete
+        await this.returnHomeWithLogoLink() // Clicks to return to home page
     }
 
 }

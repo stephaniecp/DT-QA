@@ -25,11 +25,18 @@ describe("1- Basic reality check", () => {
         await dtMainPageObject.verifyOnTheHomePage()
         console.log ("1.1 End")
     }) 
-    test("1.2 - Can navigate to nav page and return to home with top left logo", async() => {
+    test("1.2 - Can navigate to nav page and return to home with top left logo (Hard coded)", async() => {
+        console.log("1.2 Start")
         await dtMainPageObject.verifyNavItemAndHomeLogoLink()
         await dtMainPageObject.verifyOnTheHomePage()
        console.log ("1.2 End")
-    })  
+    }) 
+    test("1.3 - Can navigate to nav page and return to home with top left logo (with variable)", async() => {
+        console.log("1.3 Start")
+        await dtMainPageObject.verifyNavItemAndHomeLogoLinkWithVar(dtMainPageObject.byEventsNavListItem,dtMainPageObject.byEventPageTitleField) // To be completed
+        await dtMainPageObject.verifyOnTheHomePage()
+       console.log ("1.3 End")
+    })
 })
 
 afterAll(async () => {
