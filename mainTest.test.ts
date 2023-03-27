@@ -21,11 +21,11 @@ describe("1- Basic reality check", () => {
         console.log("1.0 End")
     }) 
 
-    // test("1.1 - Can load the home page", async() => {
-    //     console.log("1.1 Start")
-    //     await dtMainPageObject.verifyOnTheHomePage()
-    //     console.log ("1.1 End")
-    // }) 
+    test("1.1 - Can load the home page", async() => {
+        console.log("1.1 Start")
+        await dtMainPageObject.verifyOnTheHomePage()
+        console.log ("1.1 End")
+    }) 
 
     // //Test below won't work ultil able to confirm user is on the home page
     // test("1.1 - Can navigate to nav page and return to home with top left logo", async() => {
