@@ -26,18 +26,18 @@ export class DtMainPageObject extends BasePage {
     //1.0
     async helloWorldTest() {
         await this.click(this.byCompanyNavListItem)  // Clicks to access Company page
-        await this.verifyElementExists(this.byCompanyPageTitleField)
+        await this.verifyElementExists(this.byCompanyPageTitleField) // Confirms Company page is loaded by verify element exists
         await this.click(this.byHomeLogo) // Clicks to return to home page
     }
     //1.1
     async verifyOnTheHomePage() {
-        await this.verifyElementExists(this.byHomePageH3TextField)
+        await this.verifyElementExists(this.byHomePageH3TextField) // Confirms Home page is loaded by verify element exists
     }
     //1.2
     async verifyNavItemAndHomeLogoLink() {
-        await this.click(this.byEventsNavListItem)
-        await this.verifyElementExists(this.byEventPageTitleField)
-        await this.click(this.byHomeLogo)
+        await this.click(this.byEventsNavListItem) // Clicks to access Event page
+        await this.verifyElementExists(this.byEventPageTitleField) // Confirms Events page is loaded by verify element exists
+        await this.click(this.byHomeLogo) // Clicks to return to home page
     }
 
 }
