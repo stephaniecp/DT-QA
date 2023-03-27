@@ -25,7 +25,6 @@ describe("1- Basic reality check", () => {
         await dtMainPageObject.verifyOnTheHomePage()
         console.log ("1.1 End")
     }) 
-    //Test below won't work ultil able to confirm user is on the home page
     test("1.2 - Can navigate to nav page and return to home with top left logo", async() => {
         await dtMainPageObject.verifyNavItemAndHomeLogoLink()
         await dtMainPageObject.verifyOnTheHomePage()
