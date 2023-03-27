@@ -20,19 +20,17 @@ describe("1- Basic reality check", () => {
         await dtMainPageObject.helloWorldTest()
         console.log("1.0 End")
     }) 
-
     test("1.1 - Can load the home page", async() => {
         console.log("1.1 Start")
         await dtMainPageObject.verifyOnTheHomePage()
         console.log ("1.1 End")
     }) 
-
-    // //Test below won't work ultil able to confirm user is on the home page
-    // test("1.1 - Can navigate to nav page and return to home with top left logo", async() => {
-    //     await dtMainPageObject.VerifyNavItemAndHomeLogoLink()
-    //     await dtMainPageObject.verifyOnTheHomePage()
-    //    console.log ("(1.1) Clicked nav item + returned home")
-    // })  
+    //Test below won't work ultil able to confirm user is on the home page
+    test("1.2 - Can navigate to nav page and return to home with top left logo", async() => {
+        await dtMainPageObject.verifyNavItemAndHomeLogoLink()
+        await dtMainPageObject.verifyOnTheHomePage()
+       console.log ("1.2 End")
+    })  
 })
 
 afterAll(async () => {
