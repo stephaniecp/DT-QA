@@ -46,13 +46,6 @@ describe.only("3 - Contact Us form", () => {
     })
 })
 
-// describe("4 - Verify Portland office is present", () => {
-//     test("", async() => {
-
-//     })
-// })
-
-
 afterAll(async () => {
     await dtMainPageObject.driver.quit()
     console.log("AFTER ALL - Browser quit")

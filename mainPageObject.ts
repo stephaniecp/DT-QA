@@ -103,5 +103,4 @@ export class DtMainPageObject extends BasePage {
         console.log ("3.0 - 9")
     }
 
-
-}
+} // End of class DtMainPageObject 
