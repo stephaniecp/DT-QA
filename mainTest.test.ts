@@ -14,24 +14,42 @@ beforeAll(async () => {
     await dtMainPageObject.driver.manage().window().maximize()
 })
 
-describe("1- Basic reality check", () => {
-    test("1.0 - Can verify an element on the Company page", async() => {
+describe("1 - Basic reality check", () => {
+    test("1.0 - Can navigate to the Company page + verify it is the correct page by validating an element on that page", async() => {
         console.log("1.0 Start")
         await dtMainPageObject.helloWorldTest()
         console.log("1.0 End")
     }) 
-    test("1.1 - Can load the home page", async() => {
+    test("1.1 - Can navigate to the home page + verify it is the correct page by validating an element on that page", async() => {
         console.log("1.1 Start")
         await dtMainPageObject.verifyOnTheHomePage()
         console.log ("1.1 End")
     })  
-    test("1.2.2 - Can navigate to nav page and return to home with top left logo (with variable)", async() => {
+    test("1.2.2 - Can navigate to nav page and return to home with top left logo (with variable) + verify it is the correct pages by validating an element on each page", async() => {
         console.log("1.2.2 Start")
         await dtMainPageObject.verifyNavItemAndHomeLogoLinkWithVar(dtMainPageObject.byEventsNavListItem,dtMainPageObject.byEventPageTitleField)
         await dtMainPageObject.verifyOnTheHomePage()
        console.log ("1.2.2 End")
     })
 })
+describe("2 - Search function", () => {
+    test("2.0 - Can initiate a search and find relevant content", async() => {
+        await dtMainPageObject.search('Truck')
+        let textResults = await dtMainPageObject.getResults()
+        expect(textResults).toContain('Truck')
+    })
+})
+// describe("3 - Contact Us form", () => {
+//     test("", async() => {
+
+//     })
+// })
+// describe("4 - Verify Portland office is present", () => {
+//     test("", async() => {
+
+//     })
+// })
+
 
 afterAll(async () => {
     await dtMainPageObject.driver.quit()
