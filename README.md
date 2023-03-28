@@ -17,6 +17,6 @@ This project uses GitHub Actions for continious integration. To see the results 
 
 
 ## Bug(s)
-While testing, I came across a bug on the Contact Us form. [Click here](bugReportscontactPageError.md) for the complete bug report. 
+While testing, I came across a bug on the Contact Us form. [Click here](https://github.com/stephaniecp/DT-QA/blob/main/bugReports/contactPageError.md) for the complete bug report. 
 
 <br />
