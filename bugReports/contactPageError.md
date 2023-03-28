@@ -20,4 +20,7 @@ Chrome, Safari & Firefox
 MacBook Pro 2018 with MacOS 13.2.1
 & MacBook Pro 2015 with MacOS 12.6.3
 
+## Date:
+3/26/23
+
 ![Screenshot of the error](/bugReports/contactPageError.jpg)

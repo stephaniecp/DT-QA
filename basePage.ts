@@ -24,14 +24,34 @@ interface Options {
 export class BasePage {
     driver: WebDriver;
     url: string;
-
+    runEnvName: string;
+    
     constructor(options?: Options) {
-        if (options && options.driver) this.driver = options.driver;
-        else
-        this.driver = new Builder().withCapabilities(Capabilities.chrome()).build()
-        //this.driver = new Builder().withCapabilities(Capabilities.firefox()).build()
+        this.runEnvName = (typeof(process.env["RUNENVNAME"]) == "undefined") ? "LOCAL" : process.env["RUNENVNAME"]
+        console.log(`CURRENT RUNENVNAME is ${this.runEnvName}`) //RUNENV-GITHUB-CI if on github
+        
+        if (options && options.driver) {
+            this.driver = options.driver;
+        } else {
+            const newBuilder = new Builder().withCapabilities(Capabilities.chrome())
+            
+            if (this.runEnvName == "RUNENV-GITHUB-CI") {
+                console.log("ChromeConfig - github actions environment")
+                const screen = {
+                    width: 1920,
+                    height: 1080
+                    };
+                const chrome = require('selenium-webdriver/chrome');                   
+                newBuilder.setChromeOptions(new chrome.Options().headless().windowSize(screen))
+            } else {
+                console.log("ChromeConfig - local environment")
+            }
+    
+            this.driver = newBuilder.build()
+        }
         if(options && options.url) this.url = options.url
     }
+
     async navigate(url?: string): Promise<void> {
         if (url) return await this.driver.get(url);
         else if (this.url) return await this.driver.get(this.url)
