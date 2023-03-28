@@ -1,39 +1,17 @@
-# DT-QA
+# DT-QA | Daimler Truck QA Project
+This project is a serie of automated tests for the Daimler Truck website.
 
-Set up GitHub actions: 
-- Added new folders/file (.github, workflows, node.js.yml)
-    Edit "name"
-    Add this code to package.json:
+## About The Tests
+All of the tests can be viewed in the [test file](https://github.com/stephaniecp/DT-QA/blob/main/mainTest.test.ts). Each test require at least one custom method, which were created in my [Page Object](https://github.com/stephaniecp/DT-QA/blob/main/mainPageObject.ts). Multiple of those methods involved some more genral (not specific to this project) methods. Those can be found in the [Base Page](https://github.com/stephaniecp/DT-QA/blob/main/basePage.ts). 
+1. Test 1.0, 1.1. and 1.2: <br />
+Those are more general tests before to valide before going into more targeted tests. I like to start with this kind of tests to prove that my test project is working as expected and reveal anything that I might have missed since it is easier to troubleshoot
+2. Test 2.0: <br />
+This test makes sure that the core part of the search function works. It verifies that the user/driver is able to initiate a search and that the results are relevant. This last part is done by looking for keyword matches between the search query and the search results. 
+3. Test 3.0: <br />
+This tests verify that the user/driver is able to enter text in the text fields in the contact form. Because the site is real and activly used, it does however not submit the form. Note that while testing this section, I came across a bug. See Bug section below for the detail. 
 
-"scripts": {
-    "test": "npx jest"
-},
-    
-    Add constructor chunk to basePage
 
-runEnvName: string;
-constructor(options?: Options) {
-    this.runEnvName = (typeof(process.env["RUNENVNAME"]) == "undefined") ? "LOCAL" : process.env["RUNENVNAME"]
-    console.log(`CURRENT RUNENVNAME is ${this.runEnvName}`) //RUNENV-GITHUB-CI if on github
-    
-    if (options && options.driver) {
-        this.driver = options.driver;
-    } else {
-        const newBuilder = new Builder().withCapabilities(Capabilities.chrome())
-        
-        if (this.runEnvName == "RUNENV-GITHUB-CI") {
-            console.log("ChromeConfig - github actions environment")
-            const screen = {
-                width: 1920,
-                height: 1080
-                };
-            const chrome = require('selenium-webdriver/chrome');                   
-            newBuilder.setChromeOptions(new chrome.Options().headless().windowSize(screen))
-        } else {
-            console.log("ChromeConfig - local environment")
-        }
+## Bug(s)
+While testing, I came across a bug on the Contact Us form. [Click here](bugReportscontactPageError.md) for the complete bug report. 
 
-        this.driver = newBuilder.build()
-    }
-    if(options && options.url) this.url = options.url
-}
+<br />
