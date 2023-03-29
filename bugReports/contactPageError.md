@@ -4,11 +4,11 @@
 When a user navigates to the Contact Us form, a reCAPTCHA error is visible (but truncated on all browser sizes tested). The error reads: "ERROR for site owner: Invalid domain for key site".
 
 ## Expected result:
-No error occur on the Contact Us form, but if an error did happen for any reason, a clear error message would inform the user about what is wrong. 
+No error occurs on the Contact Us form, but if an error did happen for any reason, a clear error message would inform the user about what is wrong. 
 ## Actual result:
-An error message occurs upon loading the page. It is truncated and not very clear to the user. Should this be an internal error? 
+An error message occurs upon loading the page. It is truncated and not very clear to the user. The error indicates that reCAPTCHA is misconfigured and this could likely cause form submission failure. 
 
-Note that I did not test submiting the form since this was not offical QA work, but it could be worth testing to see if the form submission is affected.  
+Note that I did not test submiting the form since this was not offical QA work, but it could be worth testing to confirm if the form submission is affected.  
 
 ## Steps to reproduce:
 1. Navigate to https://northamerica.daimlertruck.com/contact-us/
